@@ -1,0 +1,1003 @@
+{
+    "defaults": {
+      "configs": {
+        "avoid_redundant_pickups": true,
+        "measure_engine": "osrm",
+        "solver_time_limit": 25,
+        "dbscan_eps": 80
+      },
+      "stops": {
+        "unassigned_penalty": 1000000
+      },
+      "vehicles": {
+        "decreasing_tours_penalty": 1000
+      }
+    },
+    "vehicles": [
+      {
+        "id": "Hamburg",
+        "speed": 5,
+        "capacity": 154,
+        "start": {
+          "lat": 53.5488,
+          "lon": 9.9872
+        },
+        "end": {
+          "lat": 53.5488,
+          "lon": 9.9872
+        },
+        "shift_start": "2023-04-11T10:00:00.000Z",
+        "shift_end": "2023-04-11T23:00:00.000Z"
+      }
+    ],
+    "stops": [
+      {
+        "id": "0 Harsdorfer Str. 43, Berlin, 39110, Germany",
+        "position": {
+          "lat": 53.5488,
+          "lon": 9.9872
+        },
+        "stop_duration": 0,
+        "quantity": -56,
+        "hard_window": [
+          "2023-04-11T10:00:00.000Z",
+          "2023-04-11T23:00:00.000Z"
+        ],
+        "compatibility_attributes": [
+          "Hamburg"
+        ]
+      },
+      {
+        "id": "0 KOREASTRASSE 3 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5435683,
+          "lon": 10.0008432
+        },
+        "stop_duration": 78,
+        "quantity": 5,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "1 KOREASTRASSE 3 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5435683,
+          "lon": 10.0008432
+        },
+        "stop_duration": 72,
+        "quantity": 5,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "2 BEI ST. ANNEN 1 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5449963,
+          "lon": 9.9975605
+        },
+        "stop_duration": 72,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "3 STEINSCHANZE 2 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5427249,
+          "lon": 10.0032836
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "4 ERICUSSPITZE 2-4 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5453525,
+          "lon": 10.0029574
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "5 BAAKENALLEE 25 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5379619,
+          "lon": 10.0121486
+        },
+        "stop_duration": 300,
+        "quantity": 2,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "6 BAAKENALLEE 25 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5379619,
+          "lon": 10.0121486
+        },
+        "stop_duration": 300,
+        "quantity": 2,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "7 AM KAISERKAI 69 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5410239,
+          "lon": 9.985943
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "8 ERICUSSPITZE 2-4 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5453525,
+          "lon": 10.0029574
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "9 UEBERSEEALLEE 10 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5402176,
+          "lon": 10.0026116
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "10 HENNING-VOSCHERAU-PLATZ 1 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5403484,
+          "lon": 10.0046042
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "11 PICKHUBEN 6 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5442917,
+          "lon": 9.9941337
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T12:00:00Z"
+        ]
+      },
+      {
+        "id": "12 KEHRWIEDER 11, HANSEATIC TRADE , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5436191,
+          "lon": 9.9854883
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "13 BAAKENALLEE 25 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5379619,
+          "lon": 10.0121486
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T12:00:00Z"
+        ]
+      },
+      {
+        "id": "14 KEHRWIEDER 11 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5435391,
+          "lon": 9.9849386
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "15 GROSSER GRASBROOK , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5410143,
+          "lon": 9.9937525
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "16 AM SANDTORPARK 4 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.542411,
+          "lon": 9.9948191
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T22:00:00Z"
+        ]
+      },
+      {
+        "id": "17 AM KAISERKAI 45 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.54109,
+          "lon": 9.98812
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T12:00:00Z"
+        ]
+      },
+      {
+        "id": "18 AM SANDTORKAI 50 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5431572,
+          "lon": 9.9940912
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "19 TOKIO STR. 2 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5422715,
+          "lon": 9.9969239
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T12:00:00Z"
+        ]
+      },
+      {
+        "id": "20 BAAKENALLEE 41 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5375166,
+          "lon": 10.0154017
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T12:00:00Z"
+        ]
+      },
+      {
+        "id": "21 KEHRWIEDER 11 20457 HAMBUIG , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5435391,
+          "lon": 9.9849386
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T12:00:00Z"
+        ]
+      },
+      {
+        "id": "22 ZOLLHAUS, ERICUS 1 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.544844,
+          "lon": 10.0033634
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "23 SUMATRAKONTOR , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5418392,
+          "lon": 9.9970527
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "24 HONGKONGSTRASSE 4 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5429328,
+          "lon": 10.0009805
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "25 AM SANDTORKAI  - 77 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5422121,
+          "lon": 9.9823372
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T12:00:00Z"
+        ]
+      },
+      {
+        "id": "26 UEBERSEEALLEE 3, , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5415977,
+          "lon": 9.9979069
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "27 KEHRWIEDER 11 20457 HAMBURG GE , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5435391,
+          "lon": 9.9849386
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "28 PICKHUBEN 6 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5442917,
+          "lon": 9.9941337
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "29 PICKHUBEN 9, D-20457 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5440052,
+          "lon": 9.9932263
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "30 COFFEE PLAZA  AM SANDTORPARK 4 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.542447,
+          "lon": 9.994825
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T12:00:00Z"
+        ]
+      },
+      {
+        "id": "31 PICKHUBEN 5 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.54407,
+          "lon": 9.994
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "32 AM SANDTORKAI 23-24 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5435047,
+          "lon": 9.9929837
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "33 AM SANDTORKAI, 3 | 4. BODEN , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5439265,
+          "lon": 9.996085
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "34 AM SANDTORPARK 2 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5427547,
+          "lon": 9.9951382
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "35 HANSEATIC TRADE CENTER , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5422657,
+          "lon": 9.9838677
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T12:00:00Z"
+        ]
+      },
+      {
+        "id": "36 KEHRWIEDER 11, , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5435391,
+          "lon": 9.9849386
+        },
+        "stop_duration": 300,
+        "quantity": 2,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "37 KEHRWIEDER 11, , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5435391,
+          "lon": 9.9849386
+        },
+        "stop_duration": 300,
+        "quantity": 2,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "38 KEHRWIEDER 11, , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5435391,
+          "lon": 9.9849386
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "39 ERICUSSSPITZE 2 4 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5453525,
+          "lon": 10.0029574
+        },
+        "stop_duration": 300,
+        "quantity": 2,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T12:00:00Z"
+        ]
+      },
+      {
+        "id": "40 HANSEATIC TRADE CENTER , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5422657,
+          "lon": 9.9838677
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "41 HANSEATIC TRADE CENTER , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5422657,
+          "lon": 9.9838677
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T18:00:00Z"
+        ]
+      },
+      {
+        "id": "42 ERICUSSJAILZE 2-4 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5453525,
+          "lon": 10.0029574
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T12:00:00Z"
+        ]
+      },
+      {
+        "id": "43 N?BERSEEALLEE 10 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5402176,
+          "lon": 10.0026116
+        },
+        "stop_duration": 300,
+        "quantity": 2,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "44 N?BERSEEALLEE 10 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5402176,
+          "lon": 10.0026116
+        },
+        "stop_duration": 300,
+        "quantity": 2,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "45 AM SANDTORKAI 4 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5437699,
+          "lon": 9.9955813
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "46 BROOKTORKAI 20 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5448978,
+          "lon": 10.0020985
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "47 AM SANDTORKAI 31 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5431984,
+          "lon": 9.989733
+        },
+        "stop_duration": 300,
+        "quantity": 1,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T12:00:00Z"
+        ]
+      },
+      {
+        "id": "48 N?BERSEEALLEE 10 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5402176,
+          "lon": 10.0026116
+        },
+        "stop_duration": 300,
+        "quantity": 8,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "49 N?BERSEEALLEE 10 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5402176,
+          "lon": 10.0026116
+        },
+        "stop_duration": 300,
+        "quantity": 8,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "50 N?BERSEEALLEE 10 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5402176,
+          "lon": 10.0026116
+        },
+        "stop_duration": 300,
+        "quantity": 8,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "51 N?BERSEEALLEE 10 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5402176,
+          "lon": 10.0026116
+        },
+        "stop_duration": 300,
+        "quantity": 8,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "52 N?BERSEEALLEE 10 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5402176,
+          "lon": 10.0026116
+        },
+        "stop_duration": 300,
+        "quantity": 8,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "53 N?BERSEEALLEE 10 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5402176,
+          "lon": 10.0026116
+        },
+        "stop_duration": 300,
+        "quantity": 8,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "54 N?BERSEEALLEE 10 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5402176,
+          "lon": 10.0026116
+        },
+        "stop_duration": 300,
+        "quantity": 8,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      },
+      {
+        "id": "55 N?BERSEEALLEE 10 , HAMBURG, 20457",
+        "position": {
+          "lat": 53.5402176,
+          "lon": 10.0026116
+        },
+        "stop_duration": 300,
+        "quantity": 8,
+        "precedes": [],
+        "compatibility_attributes": [
+          "Hamburg"
+        ],
+        "hard_window": [
+          "2023-04-11T08:00:00Z",
+          "2023-04-11T23:59:00Z"
+        ]
+      }
+    ]
+  }

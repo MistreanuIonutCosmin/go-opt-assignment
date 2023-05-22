@@ -1,0 +1,93 @@
+{
+  "defaults": {
+    "stops": {
+      "unassigned_penalty": 1000000
+    }
+  },
+  "vehicles": [
+    {
+      "id": "Hamburg",
+      "speed": 5,
+      "capacity": 154,
+      "start": {
+        "lat": 53.5488,
+        "lon": 9.9872
+      },
+      "end": {
+        "lat": 53.5488,
+        "lon": 9.9872
+      },
+      "shift_start": "2023-04-11T10:00:00.000Z",
+      "shift_end": "2023-04-11T23:00:00.000Z"
+    }
+  ],
+  "stops": [
+    {
+      "id": "0 Harsdorfer Str. 43, Berlin, 39110, Germany",
+      "position": {
+        "lat": 53.5488,
+        "lon": 9.9872
+      },
+      "stop_duration": 0,
+      "quantity": -5,
+      "hard_window": [
+        "2023-04-11T10:00:00.000Z",
+        "2023-04-11T23:00:00.000Z"
+      ],
+      "compatibility_attributes": [
+        "Hamburg"
+      ]
+    },
+    {
+      "id": "0 KOREASTRASSE 3 , HAMBURG, 20457",
+      "position": {
+        "lat": 53.5435683,
+        "lon": 10.0008432
+      },
+      "stop_duration": 78,
+      "quantity": 1,
+      "precedes": [],
+      "compatibility_attributes": [
+        "Hamburg"
+      ],
+      "hard_window": [
+        "2023-04-11T08:00:00Z",
+        "2023-04-11T10:00:00Z"
+      ]
+    },
+    {
+      "id": "1 KOREASTRASSE 3 , HAMBURG, 20457",
+      "position": {
+        "lat": 53.5435683,
+        "lon": 10.0008432
+      },
+      "stop_duration": 72,
+      "quantity": 2,
+      "precedes": [],
+      "compatibility_attributes": [
+        "Hamburg"
+      ],
+      "hard_window": [
+        "2023-04-11T08:00:00Z",
+        "2023-04-11T10:00:00Z"
+      ]
+    },
+    {
+      "id": "2 BEI ST. ANNEN 1 , HAMBURG, 20457",
+      "position": {
+        "lat": 53.5449963,
+        "lon": 9.9975605
+      },
+      "stop_duration": 72,
+      "quantity": 3,
+      "precedes": [],
+      "compatibility_attributes": [
+        "Hamburg"
+      ],
+      "hard_window": [
+        "2023-04-11T08:00:00Z",
+        "2023-04-11T10:00:00Z"
+      ]
+    }
+  ]
+}
