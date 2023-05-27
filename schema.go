@@ -13,6 +13,10 @@ import (
 // option in `solver` is also commented out. In case you would like to support
 // a different input format you can change the struct as you see fit. You may
 // need to change some code in `solver` to use the new structure.
+// an example would be adding config flags that can be used for treating
+// failed cases, where the solver yields unassigned stops, or for changing the
+// default routing strategy (the schema types are preprocessed before they are
+// are passed to the solver as options)
 type input struct {
 	Options        *options        `json:"options,omitempty"`
 	Defaults       *defaults       `json:"defaults,omitempty"`
@@ -76,6 +80,7 @@ func (d cloudDuration) MarshalJSON() ([]byte, error) {
 type defaults struct {
 	Vehicles *vehicleDefaults `json:"vehicles,omitempty"`
 	Stops    *stopDefaults    `json:"stops,omitempty"`
+	Configs  *configDefaults  `json:"configs,omitempty"`
 }
 
 type vehicleDefaults struct {
@@ -101,6 +106,10 @@ type stopDefaults struct {
 	EarlinessPenalty        *float64     `json:"earliness_penalty,omitempty"`
 	LatenessPenalty         *float64     `json:"lateness_penalty,omitempty"`
 	CompatibilityAttributes *[]string    `json:"compatibility_attributes"`
+}
+
+type configDefaults struct {
+	AutomaticExtendHw *bool `json:"automatic_extend_hw,omitempty"`
 }
 
 type vehicle struct {
@@ -265,6 +274,9 @@ func (i *input) transform() routerInput {
 			quantities[kind][s] = quant
 		}
 		if len(*stop.HardWindow) > 0 {
+			// TODO: Here we may need a check in case the config
+			// has the extend flag enabled, but there are no hard
+			// windows configured for the current stop.
 			windows[s] = route.Window{
 				MaxWait: *stop.MaxWait,
 				TimeWindow: route.TimeWindow{
