@@ -3,12 +3,10 @@ package main
 
 import (
 	"log"
-
-	"github.com/nextmv-io/sdk/run"
 )
 
 func main() {
-	err := run.Run(solver)
+	err := NoUnassignedRun(buildSolver)
 	if err != nil {
 		log.Fatal(err)
 	}
