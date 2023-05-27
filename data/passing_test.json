@@ -2,6 +2,9 @@
   "defaults": {
     "stops": {
       "unassigned_penalty": 1000000
+    },
+    "configs": {
+      "automatic_extend_hw": true
     }
   },
   "vehicles": [
