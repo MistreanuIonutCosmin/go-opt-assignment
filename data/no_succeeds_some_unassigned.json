@@ -4,7 +4,9 @@
         "avoid_redundant_pickups": true,
         "measure_engine": "osrm",
         "solver_time_limit": 25,
-        "dbscan_eps": 80
+        "dbscan_eps": 80,
+        "automatic_extend_hw": true,
+        "max_unassigned_expansion": 15
       },
       "stops": {
         "unassigned_penalty": 1000000

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"log"
 	"time"
 
 	"github.com/nextmv-io/sdk/model"
@@ -186,44 +185,62 @@ type DynamicSolverBuilder func(i input, opts store.Options) (store.Solver, route
 // in the custom runner in order to rerun the solver dynamically.
 var buildSolver = func() DynamicSolverBuilder {
 	var router *route.Router
-	var routerInput *routerInput
+	// var routerInput *routerInput
 	var routerOptions *store.Options
 
-	// The retry count will determine the change we have to apply
-	// to the input windows for the current run.
+	// TODO: More efficient way of doing this would be binary searching the
+	// entire space of values we could use to enlarge the windows.
+	// This would be equivalent to the maximum diff between the vehicles'
+	// shift start/end and the unassigned stops hard window start/end,
+	// instead of converging linearly to the minimum window change.
+	// Also, there is no point in enlarging the windows beyond the shifts.
 	retryCount := 0
-	windowStep := []time.Duration{-1 * time.Minute, 1 * time.Minute}
-
+	windowMinutesStep := []time.Duration{0 * time.Minute, 0 * time.Minute}
+	windowFactor := 2
 	return func(i input, opts store.Options) (store.Solver, route.Router, error) {
 		if router == nil {
 			// First run will require the router to be initialized and
 			// the router input populated.
 			// Similar to a singleton.
-			initialRouter, initialInput, initialOptions,
+			initialRouter, _, initialOptions,
 				err := initRouter(i, opts)
 			if err != nil {
 				return nil, nil, err
 			}
 			router = &initialRouter
-			routerInput = initialInput
+			// routerInput = initialInput
 			routerOptions = initialOptions
-
-			log.Println(routerInput.Windows)
 		} else if retryCount > 0 &&
+			i.Defaults.Configs != nil &&
 			i.Defaults.Configs.AutomaticExtendHw != nil &&
 			*i.Defaults.Configs.AutomaticExtendHw {
-			windowStep[0], windowStep[1] = windowStep[0]*2, windowStep[1]*2
+			windowMinutesStep[0] -= time.Duration(windowFactor) * time.Minute
+			windowMinutesStep[1] += time.Duration(windowFactor) * time.Minute
 
 			// TODO: A NIT would be to check if there is any point in
 			// enlarging the window by checking if it goes outside
 			// the maximum vehicles' shift window
-			// (this implies comparing each vehicle shift as well).
+			// (this implies coalescing all i.Vehicles shifts).
+			// If the Start goes out of bounds, but End could still grow,
+			// we could skip increasing Start.
+			for j, stop := range i.Stops {
+				(*i.Stops[j].HardWindow)[0] = (*stop.HardWindow)[0].Add(windowMinutesStep[0])
+				(*i.Stops[j].HardWindow)[1] = (*stop.HardWindow)[1].Add(windowMinutesStep[1])
+			}
 
-			// TODO: Add adjusting logic here.
+			// It would've been great to just change the options on the current
+			// router, but this isn't possible...
+			// err = (*router).Options(route.Windows(routerInput.Windows))
+			newRouter, _, newOptions, err := initRouter(i, *routerOptions)
+			if err != nil {
+				return nil, nil, err
+			}
+			router = &newRouter
+			routerOptions = newOptions
 		}
 
-		retryCount += 1
 		solver, err := (*router).Solver(*routerOptions)
+		retryCount += 1
 		return solver, *router, err
 	}
 }

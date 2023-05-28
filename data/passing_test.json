@@ -5,7 +5,7 @@
     },
     "configs": {
       "automatic_extend_hw": true,
-      "max_unassigned_expansion": 0
+      "max_unassigned_expansion": 5
     }
   },
   "vehicles": [

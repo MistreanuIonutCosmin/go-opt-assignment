@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"log"
 
 	"github.com/nextmv-io/sdk/route"
 	"github.com/nextmv-io/sdk/run"
@@ -21,9 +22,26 @@ func NoUnassignedRun(builder func() DynamicSolverBuilder,
 		ctx context.Context,
 		input input, option store.Options, solutions chan<- store.Solution,
 	) error {
-		optimize_threshold := 0
+		if input.Defaults.Configs == nil ||
+			input.Defaults.Configs.AutomaticExtendHw == nil ||
+			!*input.Defaults.Configs.AutomaticExtendHw {
+			// We should do a plain run, nothing fancy.
+			solver, _, err := solverBuilder(input, option)
+			if err != nil {
+				return err
+			}
+
+			for solution := range solver.All(ctx) {
+				solutions <- solution
+			}
+			log.Println("Hard window extensions is disabled. Will not rerun if there are unassigned stops.")
+
+			return nil
+		}
+
+		maxRetries := 10
 		if input.Defaults.Configs.MaxUnassignedExpansion != nil {
-			optimize_threshold = *input.Defaults.Configs.MaxUnassignedExpansion
+			maxRetries = *input.Defaults.Configs.MaxUnassignedExpansion
 		}
 
 		// [NIT]: We can use this snippet, in case we want all solutions
@@ -35,12 +53,13 @@ func NoUnassignedRun(builder func() DynamicSolverBuilder,
 		// 	solutions <- solution
 		// }
 
-		var unassigned_count int
+		var unassignedCount int
 		var solver store.Solver
 		var last store.Solution
-		for optimize := true; optimize; optimize = (unassigned_count > optimize_threshold) {
-			// Rebuild the solver with adjusted router input,
-			// in case the criterion isn't met.
+		retryCount := 0
+		// Rebuild the solver with adjusted router input,
+		// in case the criterion isn't met.
+		for optimize := true; optimize; optimize, retryCount = (unassignedCount > 0), retryCount+1 {
 			var router route.Router
 			var err error
 			solver, router, err = solverBuilder(input, option)
@@ -50,7 +69,16 @@ func NoUnassignedRun(builder func() DynamicSolverBuilder,
 
 			last = solver.Last(ctx)
 			plan := router.Plan()
-			unassigned_count = len(plan.Get(last.Store).Unassigned)
+			unassignedCount = len(plan.Get(last.Store).Unassigned)
+
+			if retryCount > maxRetries {
+				log.Println("Couldn't find a complete solution in max_unassigned_expansion retries.")
+				log.Println("Will output the last solution")
+				break
+			}
+		}
+		if retryCount <= maxRetries {
+			log.Printf("Found a complete solution in %d retries.", retryCount-1)
 		}
 
 		// Start pushing out the solutions, once we have one that

@@ -113,7 +113,7 @@ type configDefaults struct {
 	// the unassigned stops by expanding the boundaries of the hard windows.
 	AutomaticExtendHw *bool `json:"automatic_extend_hw,omitempty"`
 	// This is used to mark when to stop expanding the windows.
-	// By default, this will be set to zero.
+	// By default, this will be set to 10 retries.
 	MaxUnassignedExpansion *int `json:"max_unassigned_expansion,omitempty"`
 }
 
@@ -279,9 +279,11 @@ func (i *input) transform() routerInput {
 			quantities[kind][s] = quant
 		}
 		if len(*stop.HardWindow) > 0 {
-			// TODO: Here we may need a check in case the config
-			// has the extend flag enabled, but there are no hard
-			// windows configured for the current stop.
+			if i.Defaults.Configs != nil &&
+				i.Defaults.Configs.AutomaticExtendHw != nil &&
+				*i.Defaults.Configs.AutomaticExtendHw {
+				// TODO: Change the function to return an error.
+			}
 			windows[s] = route.Window{
 				MaxWait: *stop.MaxWait,
 				TimeWindow: route.TimeWindow{
