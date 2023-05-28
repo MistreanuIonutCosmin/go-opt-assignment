@@ -4,7 +4,8 @@
       "unassigned_penalty": 1000000
     },
     "configs": {
-      "automatic_extend_hw": true
+      "automatic_extend_hw": true,
+      "max_unassigned_expansion": 0
     }
   },
   "vehicles": [

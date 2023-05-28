@@ -109,7 +109,12 @@ type stopDefaults struct {
 }
 
 type configDefaults struct {
+	// Indicates whether the runner should try to minimize
+	// the unassigned stops by expanding the boundaries of the hard windows.
 	AutomaticExtendHw *bool `json:"automatic_extend_hw,omitempty"`
+	// This is used to mark when to stop expanding the windows.
+	// By default, this will be set to zero.
+	MaxUnassignedExpansion *int `json:"max_unassigned_expansion,omitempty"`
 }
 
 type vehicle struct {
