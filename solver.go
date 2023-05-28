@@ -173,12 +173,9 @@ func initRouter(i input, opts store.Options) (route.Router, *routerInput, *store
 }
 
 // The solver builder takes care of adapting the router options each
-// time a run is triggered. Initially, the solver will run as is, without
-// any changes. On subsequent runs, we'll execute the strategy for changing
+// time a run is triggered. Initially, the solver will be run as is, without
+// any changes. On subsequent calls, we'll execute the strategy for changing
 // the router options.
-// TODO: Create strategy interface for multiple approaches. At the moment,
-// we only support a dummy window enlarge. This could be passed to the builder,
-// in order to avoid convoluting logic as we do now.
 type DynamicSolverBuilder func(i input, opts store.Options) (store.Solver, route.Router, error)
 
 // This is a wrapper around the function that actually returns the
@@ -213,8 +210,14 @@ var buildSolver = func() DynamicSolverBuilder {
 
 			log.Println(routerInput.Windows)
 		} else if retryCount > 0 &&
-			i.Defaults.Configs.AutomaticExtendHw == nil || !*i.Defaults.Configs.AutomaticExtendHw {
+			i.Defaults.Configs.AutomaticExtendHw != nil &&
+			*i.Defaults.Configs.AutomaticExtendHw {
 			windowStep[0], windowStep[1] = windowStep[0]*2, windowStep[1]*2
+
+			// TODO: A NIT would be to check if there is any point in
+			// enlarging the window by checking if it goes outside
+			// the maximum vehicles' shift window
+			// (this implies comparing each vehicle shift as well).
 
 			// TODO: Add adjusting logic here.
 		}
